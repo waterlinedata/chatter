@@ -21,12 +21,15 @@ export class ChatComponent implements OnInit {
     this.messages = this.db.list('chat_messages');
   }
 
-  newMessage(message) {
-    const newMessage = {
-      author: config.authorName,
-      value: message.value
-    };
-    this.messages.push(newMessage);
-    message.value = '';
+  newMessage(textField) {
+    if (textField.value) {
+      const newMessage = {
+        author: config.authorName,
+        value: textField.value
+      };
+      this.messages.push(newMessage);
+
+      textField.value = '';
+    }
   }
 }
