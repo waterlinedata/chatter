@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
 import { config } from '../app.config';
+import { Message } from './message';
 
 @Component({
   selector: 'app-chat',
@@ -9,7 +10,7 @@ import { config } from '../app.config';
 })
 export class ChatComponent implements OnInit {
 
-  messages: FirebaseListObservable<any[]>;
+  messages: FirebaseListObservable<Message[]>;
 
   constructor(public db: AngularFireDatabase) { }
 
