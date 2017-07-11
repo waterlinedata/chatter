@@ -1,0 +1,10 @@
+<md-card *ngFor="let message of messages | async">
+  <strong>{{message.author}}</strong>: {{message.value}}
+</md-card>
+
+<md-input-container class="chat-half-width">
+  <input mdInput #message placeholder="Your message...">
+</md-input-container>
+
+
+<button md-fab (click)="newMessage(message)"><md-icon>publish</md-icon></button>
