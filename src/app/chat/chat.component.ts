@@ -10,19 +10,19 @@ import { Message } from './message';
 })
 export class ChatComponent implements OnInit {
 
-  messages: FirebaseListObservable<Message[]>;
+  public messages: FirebaseListObservable<Message[]>;
 
   constructor(public db: AngularFireDatabase) { }
 
   ngOnInit() {
-    this.getChatData();
+    this._getChatData();
   }
 
-  getChatData() {
+  private _getChatData() {
     this.messages = this.db.list('chat_messages');
   }
 
-  newMessage(textField) {
+  public newMessage(textField) {
     if (textField.value) {
       const newMessage = {
         author: config.authorName,
